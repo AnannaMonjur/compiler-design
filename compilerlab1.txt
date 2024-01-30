@@ -1,0 +1,68 @@
+
+1.TASK1
+
+#include <iostream>
+using namespace std;
+int main(){
+int sum=0;
+int numbers[4]={1,3,5,7};
+int arraySize = sizeof (numbers) /sizeof (int);
+for (int i=0;i<arraySize; i++) {
+sum+=numbers[il;
+}
+double average - sum/arraySize;
+cout<<"The average of the array element is: "<<average<<endl;
+
+
+
+
+
+
+2.TASK2
+#include<iostream>
+using namespace std;
+int main(){
+int arr [5]={14,3,5,7,8};
+int biggerValue =arr [0];
+int lowerValue = arr[0];
+int size0fArray = sizeof(arr) /sizeof(int);
+for (int i=0;i‹sizedfArray; i++){
+if(biggerValue<arr [i]){
+biggerValue= arr[i];
+}
+if(lowerValue›arr[i]){
+lowerValue = arr[i];
+}
+cout‹‹"Bigger Value is: "«‹biggerValue‹‹endl; 
+cout‹‹ "Lower Value is: "‹lowerValue<<endl;
+}
+
+
+3.TASK3
+
+#include <iostream>
+using namespace std;
+int main()
+string name1, name2, fullname; 
+cout<<"enter the first name:";
+cin>> namel;
+cout<<"enter the last name:";
+cin>> name2:
+cout<<"the full name is:"<<name1<<" "<<name2<<endl;
+}
+
+
+4.TASK4
+
+
+#include <iostream>
+using namespace std;
+int main () {
+int n, fac=1;
+cout<<"enter a value:";
+cin>>n;
+for (int i=n;i>0;i--){
+fac= fac*i;
+}
+cout<<"factorial of"<<n<<" is:"<<fac<<endl;
+}
