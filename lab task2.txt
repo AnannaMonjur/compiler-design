@@ -1,0 +1,89 @@
+1.
+#include<iostream>
+using namespace std;
+
+int main()
+{
+string input;
+cin>>input;
+if (input>="A" && input<="Z")
+{
+    cout<<"Not Numeric";
+}
+ else if(input>="a" && input<="z")
+{
+    cout<<"Not numeric";
+}
+ else if(input>="*" && input>="+" && input>="-" && input>="/" && input>="%" && input>= "$" && input>= "#")
+{
+    cout << "Not Numeric";
+}
+else{
+    cout<<"Numeric";
+}
+
+}
+
+
+
+
+
+2.
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+void print(const string& input) {
+    cout << "Arithmetic operators: ";
+    for (char c : input) {
+        if (c == '+' || c == '-' || c == '*' || c == '/') {
+            cout << c << " ";
+        }
+    }
+    cout << endl;
+}
+
+int main() {
+    string input;
+    cout << "Enter an expression: ";
+    cin >> input;
+
+    print(input);
+
+    return 0;
+}
+
+
+
+
+
+3.
+#include <iostream>
+#include <string>
+ using namespace std;
+bool isSingleLineComment (const string& input) {
+ return (input.substr (0, 2) == "//");
+}
+bool isMultiLineCommentStart (const string& input){
+  return (input.substr (0, 2) == "/*");
+}
+bool isMultiLineCommentEnd (const string& input){
+return (input.substr (input.size () - 2, 2) == "*/");
+}
+bool isComment (const string& input) {
+if (isSingleLineComment (input) || isMultiLineCommentStart (input) | | isMultiLineCommentEnd (input)){
+return true;
+}
+return false;
+}
+int main (){
+string input;
+cout<< "Enter input:";
+getline (cin, input) ;
+if (iscomment (input)){
+cout<<"Input is a comment" <<endl;
+}else {
+cout<<"Input is not a comment"<<endl;
+}
+}
