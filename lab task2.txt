@@ -60,30 +60,55 @@ int main() {
 
 3.
 #include <iostream>
-#include <string>
- using namespace std;
-bool isSingleLineComment (const string& input) {
- return (input.substr (0, 2) == "//");
+
+using namespace std;
+
+bool is_single_line_comment(const string& line) {
+    return line.find("//") == 0;
 }
-bool isMultiLineCommentStart (const string& input){
-  return (input.substr (0, 2) == "/*");
+
+bool is_multi_line_comment_start(const string& line) {
+    return line.find("/*") == 0;
 }
-bool isMultiLineCommentEnd (const string& input){
-return (input.substr (input.size () - 2, 2) == "*/");
+
+bool is_multi_line_comment_end(const string& line) {
+    return line.find("*/") != string::npos;
 }
-bool isComment (const string& input) {
-if (isSingleLineComment (input) || isMultiLineCommentStart (input) | | isMultiLineCommentEnd (input)){
-return true;
+
+bool is_comment_line(const string& line) {
+    if (is_single_line_comment(line))
+        return true;
+    else if (is_multi_line_comment_start(line)) {
+        if (is_multi_line_comment_end(line))
+            return true;
+        else {
+            // Need to check for multi-line comments until its end
+            bool in_multi_line_comment = true;
+            for (size_t i = 1; i < line.length(); ++i) {
+                if (is_multi_line_comment_end(line.substr(i))) {
+                    in_multi_line_comment = false;
+                    break;
+                }
+            }
+            return in_multi_line_comment;
+        }
+    }
+    return false;
 }
-return false;
-}
-int main (){
-string input;
-cout<< "Enter input:";
-getline (cin, input) ;
-if (iscomment (input)){
-cout<<"Input is a comment" <<endl;
-}else {
-cout<<"Input is not a comment"<<endl;
-}
+
+int main() {
+    string user_input;
+    cout << "Enter a line of code: ";
+    getline(cin, user_input);
+
+    if (is_comment_line(user_input)) {
+        if (is_single_line_comment(user_input))
+            cout << "The given input is a single-line comment." << endl;
+        else
+            cout << "The given input is a multi-line comment." << endl;
+    }
+    else
+        cout << "The given input is not a comment line." << endl;
+
+    return 0;
 }
