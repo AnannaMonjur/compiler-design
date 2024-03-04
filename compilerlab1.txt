@@ -1,17 +1,35 @@
 
 1.TASK1
-
 #include <iostream>
 using namespace std;
-int main(){
-int sum=0;
-int numbers[4]={1,3,5,7};
-int arraySize = sizeof (numbers) /sizeof (int);
-for (int i=0;i<arraySize; i++) {
-sum+=numbers[il;
+
+int main()
+{
+    int n, i;
+    float num[100], sum=0.0, average;
+
+    cout << "Enter the numbers of data: ";
+    cin >> n;
+
+    while (n > 100 || n <= 0)
+    {
+        cout << "Number is not between 1 to 100" << endl;
+        cout << "Enter the number again: ";
+        cin >> n;
+    }
+
+    for(i = 0; i < n; ++i)
+    {
+        cout << i + 1 << ". Enter number: ";
+        cin >> num[i];
+        sum += num[i];
+    }
+
+    average = sum / n;
+    cout << "Average = " << average;
+
+    return 0;
 }
-double average - sum/arraySize;
-cout<<"The average of the array element is: "<<average<<endl;
 
 
 
@@ -19,50 +37,83 @@ cout<<"The average of the array element is: "<<average<<endl;
 
 
 2.TASK2
-#include<iostream>
+
+#include <iostream>
+
 using namespace std;
-int main(){
-int arr [5]={14,3,5,7,8};
-int biggerValue =arr [0];
-int lowerValue = arr[0];
-int size0fArray = sizeof(arr) /sizeof(int);
-for (int i=0;i‹sizedfArray; i++){
-if(biggerValue<arr [i]){
-biggerValue= arr[i];
+
+int main() {
+    int a[1000], i, n, min, max;
+
+    cout << "Enter size of the array: ";
+    cin >> n;
+
+    cout << "Enter elements in array: ";
+    for (i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+
+    min = max = a[0];
+    for (i = 1; i < n; i++) {
+        if (min > a[i])
+            min = a[i];
+        if (max < a[i])
+            max = a[i];
+    }
+
+    cout << "Minimum of array is: " << min << endl;
+    cout << "Maximum of array is: " << max << endl;
+
+    return 0;
 }
-if(lowerValue›arr[i]){
-lowerValue = arr[i];
-}
-cout‹‹"Bigger Value is: "«‹biggerValue‹‹endl; 
-cout‹‹ "Lower Value is: "‹lowerValue<<endl;
-}
+
 
 
 3.TASK3
-
 #include <iostream>
-using namespace std;
-int main()
-string name1, name2, fullname; 
-cout<<"enter the first name:";
-cin>> namel;
-cout<<"enter the last name:";
-cin>> name2:
-cout<<"the full name is:"<<name1<<" "<<name2<<endl;
-}
 
+using namespace std;
+
+int main() {
+    const int MAX_SIZE = 100; // Assuming a maximum size for first and last names
+    char firstName[MAX_SIZE], lastName[MAX_SIZE], fullName[MAX_SIZE * 2];
+
+    cout << "Enter your first name: ";
+    cin >> firstName;
+
+    cout << "Enter your last name: ";
+    cin >> lastName;
+
+    // Concatenate first and last names with a space in between
+    sprintf(fullName, "%s %s", firstName, lastName);
+
+    cout << "Full name: " << fullName << endl;
+
+    return 0;
+}
 
 4.TASK4
-
-
 #include <iostream>
 using namespace std;
-int main () {
-int n, fac=1;
-cout<<"enter a value:";
-cin>>n;
-for (int i=n;i>0;i--){
-fac= fac*i;
+
+int main() {
+    int num;
+    long long factorial = 1;
+
+
+    cout << "Enter a non-negative integer: ";
+    cin >> num;
+    if (num < 0) {
+        cerr << "Please enter a non-negative integer.\n";
+        return 1;
+    }
+
+
+    for (int i = 1; i <= num; ++i) {
+        factorial *= i;
+    }
+    cout << "Factorial of " << num << " = " << factorial << endl;
+
+    return 0;
 }
-cout<<"factorial of"<<n<<" is:"<<fac<<endl;
-}
+
